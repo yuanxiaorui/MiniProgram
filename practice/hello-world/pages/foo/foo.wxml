@@ -1,0 +1,55 @@
+<view>条件渲染</view>
+<view class="box" wx:if="{{seen}}">
+wx:if
+</view>
+
+<view class='box' hidden='{{!seen}}'>hidden</view>
+
+<!-- 数据修改 -->
+<view>{{count}}</view>
+<button bindtap='increaseCount'>点击自增</button>
+
+<!-- 
+“事件处理函数”定义在Page函数的选项对象中
+bind事件类型=“事件处理函数”
+或者 bind:事件类型="事件处理函数"
+
+事件传参
+1。data-xxx="属性值"传递参数
+2.在事件处理函数中通过e.currentTarget.dataset获取data-xxx的参数（不包含data-前缀）
+
+错误的写法：
+bind:tap="handleTap(item.title)"
+Do not have handleTap(item.title) handler in current page
+ -->
+<view>事件处理</view>
+<!-- 
+wx:key
+如果列表不动态改变，就没有必要提供 wx:key
+  增加减少列表项
+  列表排序
+如果列表项可能发生动态改变，最好提供 wx:key
+wx:key 的两种值：
+  字符串，代表在for循环的array中item的某个property  
+ 保留关键字 *this代表在for循环中的item本身,这种表示需要item本身是一个唯一的字符串或者数字
+ -->
+<button 
+wx:for="{{todos}}"
+wx:key="id"
+data-title="{{item.title}}"
+data-foo="bar"
+bind:tap="handleTap">点我</button>
+
+<view wx:for="{{numberArray}}" wx:key="*this">{{item}}</view>
+
+<!-- 
+事件绑定和冒泡
+bind具有冒泡的行为
+catch不会冒泡
+ -->
+<view class='box2' bindtap='handleTap2'>
+<button bindtap='handleTap3'>点击</button>
+</view>
+<view class='box2' catchtap='handleTap2'>
+<button catchtap='handleTap3'>点击</button>
+</view>

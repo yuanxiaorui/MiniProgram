@@ -1,0 +1,2 @@
+.box{width:100rpx;height:100rpx;background:#ff0}
+.box2{height:200rpx;padding:50rpx;background-color:yellowgreen;margin-bottom:50px;}

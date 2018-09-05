@@ -1,0 +1,25 @@
+<!-- 页面.wxss -->
+<style lang="less">
+</style>
+
+<!-- 页面.wxml -->
+<template>
+  <view class="container">
+    category page
+  </view>
+</template>
+
+<!-- 页面.js -->
+<script>
+  import wepy from 'wepy'
+
+  export default class Cart extends wepy.page {
+    // 页面.json
+    config = {
+      navigationBarTitleText: 'test'
+    }
+    onLoad() {
+      console.log('onLoad')
+    }
+  }
+</script>

@@ -1,0 +1,188 @@
+<!-- 页面.wxml -->
+<template>
+<view class="container">
+<!-- 搜索条 -->
+  <view class="searchbar-wrap">
+    <view class="searchbar">
+      <image class="searchbar-img" src="/images/icon_search@2x.png"></image>
+      <text class="searchbar-text">搜索</text>
+    </view>
+  </view>
+<!-- 搜索条end -->
+<!-- 轮播图 -->
+<view class="swiper-wrap">
+  <swiper 
+    class="swiper"
+    indicator-dots
+    indicator-color="rgba(255,255,255, .5)"
+    indicator-active-color="#fff"
+    autoplay
+    circular
+    interval="2000">
+    <block>
+      <swiper-item class="swiper-item">
+        <image src="/images/banner1.png" class="swiper-item-img" mode="widthFix"/>
+      </swiper-item>
+      <swiper-item class="swiper-item">
+        <image src="/images/banner2.png" class="swiper-item-img" mode="widthFix"/>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<!-- 轮播图end -->
+<!--  分类导航 -->
+<view class="nav-wrap">
+  <navigator class="nav-item">
+    <image class="nav-item-img" src="/images/icon_index_nav_1@2x.png" />
+  </navigator>
+  <navigator class="nav-item">
+    <image class="nav-item-img" src="/images/icon_index_nav_3@2x.png" />
+  </navigator>
+  <navigator class="nav-item">
+    <image class="nav-item-img" src="/images/icon_index_nav_4@2x.png" />
+  </navigator>
+  <navigator class="nav-item">
+    <image class="nav-item-img" src="/images/icon_index_nav_5@2x.png" />
+  </navigator>
+</view>
+<!--  分类导航end -->
+</view>
+</template>
+
+<!-- 页面.js -->
+<script>
+  import wepy from 'wepy'
+
+  export default class Index extends wepy.page {
+    // 页面.json
+    config = {
+      navigationBarTitleText: 'test'
+    }
+    onLoad() {
+      console.log('onLoad')
+    }
+  }
+</script>
+
+<!-- 页面.wxss -->
+<style lang="less">
+/* 搜索条 */
+.searchbar-wrap {
+  background-color: #ff2d4a;
+  padding: 20rpx 16rpx;
+}
+
+.searchbar {
+  height: 60rpx;
+  background-color: #fff;
+  border-radius: 5rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchbar-img {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.searchbar-text {
+  margin-left: 16rpx;
+  font-size: 24rpx;
+  color: #bbb;
+}
+
+/* 轮播图 */
+.swiper {
+  height: 340rpx;
+}
+
+.swiper-item-img {
+  width: 100%;
+}
+
+/* 分类导航 */
+.nav-wrap {
+  display: flex;
+  padding-top: 24rpx;
+  padding-bottom: 29rpx;
+}
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.nav-item-img {
+  width: 128rpx;
+  height: 128rpx;
+}
+
+/* 楼层导航 */
+.floor {
+  margin-top: 30rpx;
+}
+.floor-head-img {
+  width: 750rpx;
+  height: 59rpx;
+}
+.floor-body {
+  background-color: #fff;
+  padding: 20rpx 0 10rpx 16rpx;
+  display: flex;
+}
+.floor-body-right {
+  display: flex;
+  flex-wrap: wrap;
+}
+.floor-body-img-link {
+  margin: 0 10rpx 10rpx 0;
+}
+.floor-body-left-img {
+  width: 232rpx;
+  height: 386rpx;
+}
+.floor-body-right-img {
+  width: 233rpx;
+  height: 188rpx;
+}
+.hvr {
+  opacity: 0.7;
+}
+
+/* 返回顶部 */
+.to-top {
+  width: 88rpx;
+  height: 88rpx;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 16rpx;
+  bottom: 90rpx;
+  &-img {
+    width: 24rpx;
+    height: 14rpx;
+  }
+  &-txt {
+    color: #666;
+  }
+}
+
+/* 底线 */
+.end-tips{
+  height: 200rpx;
+  display: flex;
+  justify-content: center;
+  color:#999;
+  margin-top: 20rpx;
+  &-txt{
+    margin-left: 10rpx;
+  }
+}
+</style>
